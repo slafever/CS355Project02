@@ -1,0 +1,26 @@
+
+<%include ../partials/header.ejs%>
+<div>
+<% if(rs.length > 0) { %>
+<table border="1">
+    <tr>
+        <th>Username</th>
+        <th>Title</th>
+        <th>Position</th>
+        <th>Points</th>
+    </tr>
+    <% for (var i=0; rs.length > i; i++) { %>
+    <tr>
+        <td><a href="/player/information?title=<%= rs[i].title %>"> <%= rs[i].username %></a></td>
+        <td><a href="/player/information?title=<%= rs[i].title %>"> <%= rs[i].title %></a></td>
+        <td><a href="/player/information?title=<%= rs[i].title %>"> <%= rs[i].position %></a></td>
+        <td><a href="/player/information?title=<%= rs[i].title%>"> <%= rs[i].points %></a></td>
+
+    </tr>
+    <% } %>
+</table>
+<% } else { %>
+No ranking exists for this game.
+<% } %>
+</div>
+<%include ../partials/footer.ejs%>

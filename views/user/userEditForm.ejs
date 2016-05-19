@@ -1,0 +1,58 @@
+<% include ../partials/header.ejs %>
+
+<% if (typeof message !== 'undefined') { %>
+<div><%= message %></div>
+<% } %>
+
+<% if(rs.length > 0) { %>
+<h1>Edit User</h1>
+<form method="POST" action="/users/update_user">
+    <input type="hidden" name="user_id" value="<%= rs[0].user_id %>" />
+    First Name <input type="text" id="firstname" name="firstname" value="<%= rs[0].first_name%>" />
+    <br />
+    <br />
+    Last Name <input type="text" id="lastname" name="lastname" value="<%= rs[0].last_name%>" />
+    <br />
+    <br />
+    Email <input type="text" id="email" name="email" value="<%= rs[0].email%>" />
+    <br />
+    <br />
+    Password <input type="password" id="password" name="password" value="<%= rs[0].password%>" />
+    <br />
+    <br />
+
+    State(s)
+    <div style="margin-left:10px;">
+        <select name="state_id">
+            <% for( var i = 0; i < states.length; i++) { %>
+
+            <%
+                /*
+                 * We can match the genre's the movie already has checked with the genre list
+                 * in the template, but we could also do the same thing in the controller.
+                 */
+
+            for (var j=0; j < rs.length; j++) { %>
+
+            <option
+                    <% if(states[i].state_id == rs[j].state_id) { %>
+                    selected
+
+                    <% }
+                    }
+                    %>
+                    value="<%= states[i].state_id %>"><%= states[i].state_name %>
+            </option> <br />
+
+            <% } %>
+        </select>
+    </div>
+
+
+    <button id="addBtn">Edit</button>
+</form>
+<% } else { %>
+No movie matches that ID.
+<% } %>
+
+<% include ../partials/footer.ejs %>

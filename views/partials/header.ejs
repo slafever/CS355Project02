@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>< CS355 ></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+        #header {
+            background-image:url("https://images8.alphacoders.com/565/565123.jpg");
+            color:white;
+            text-align:center;
+            padding:5px;
+            font-size:48px;
+            font-family: "Penumbra", HalfSerif;
+        }
+        #nav {
+            line-height:30px;
+            background-image:url("https://images5.alphacoders.com/609/609173.jpg");
+            background_position:left;
+            background-repeat: no-repeat;
+            color:white;
+            height:440px;
+            width:100px;
+            float:left;
+            padding:55px;
+        }
+        #section {
+            width:350px;
+            float:left;
+            padding:10px;
+        }
+        #footer{
+            background-image:url("http://graphicloads.com/wp-content/uploads/2015/01/dragon-7.jpg");
+            color:white;
+            clear:both;
+            text-align:center;
+            padding:5px;
+
+        }
+    </style>
+    <% if (typeof js_includes !== 'undefined') { %>
+    <% for(var i=0; i < js_includes.length; i++) { %>
+    <script src="<%= js_includes[i] %>"></script>
+    <% }%>
+    <% }%>
+</head>
+<body>
+<div style="float:right;">
+    <% if(typeof first_name !== "undefined") { %>
+    Welcome, <%= first_name %>
+    <% } else { %>
+    <a href="/login">Login</a>
+    <a href="users/create">Sign Up</a>
+    <% } %>
+</div>
+<div id="header">
+    Gaming Leaders
+</div>
+<div id="nav">
+    <br/>
+    <a href="http://localhost:3000">Home</a>
+    <br/>
+    <a href="http://www.cs.sonoma.edu/~haderman/">CS355</a>
+    <br/>
+    <a href="http://www.cs.sonoma.edu/">CS SSU</a>
+    <br/>
+    <a href="http://www.sonoma.edu/">SSU</a>
+    <br/>
+    <a href="http://www.localhost:3000/game/all">Get All Games</a>
+    <br />
+    <a href="http://www.localhost:3000/users/all">Get All Users</a>
+    <br />
+    <a href="http://www.localhost:3000/player/all">Get All Players</a>
+    <br />
+    <a href="http://localhost:3000/genre/new">Create a New Genre</a>
+    <br/>
+    <a href="http://localhost:3000/state/new">Create a New State</a>
+    <br />
+    <a href="http://localhost:3000/player/appearance">Rankings</a>
+    <br />
+    <a href="http://localhost:3000/insert">Rank a player!</a>
+    <br />
+    <a href="http://www.localhost:3000/about">About</a>
+    <br />
+</div>

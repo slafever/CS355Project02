@@ -1,0 +1,14 @@
+<% include ../partials/header.ejs%>
+<% if(rs.length > 0) { %>
+Name: <%= rs[0].first_name %> <%= rs[0].last_name %>
+<ul>
+    <% for(var i=0; i < rs.length; i++) {%>
+    <li><%= rs[i].title %></li>
+    <li><%= rs[i].position %></li>
+    <% } %>
+</ul>
+<% } else { %>
+No Player matched player id <%= player_id %>.
+<% } %>
+
+<% include ../partials/footer.ejs%>

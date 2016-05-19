@@ -1,0 +1,12 @@
+<%include ../partials/header%>
+<% if(rs.length > 0) { %>
+Title: <%= rs[0].title %>
+<ul>
+    <% for(var i=0; i < rs.length; i++) {%>
+    <li><%= rs[i].genre_name %></li>
+    <% } %>
+</ul>
+<% } else { %>
+No game matched game id <%= video_game_id %>.
+<% } %>
+<%include ../partials/footer%>

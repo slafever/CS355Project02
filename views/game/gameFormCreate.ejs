@@ -1,0 +1,23 @@
+<%include ../partials/header%>
+
+<% js_includes = []%>
+
+<h1>Add a New Movie</h1>
+<form method="POST" action="/game/insert_game">
+    Title <input type="text" id="title" name="title" /> <br />
+    ESRB_Rating <input type="text" id="ESRB_Rating" name="ESRB_Rating" /> <br />
+    Description<textarea name="description"></textarea> <br />
+    <br />
+
+    Genre(s)<br />
+    <% for( var i = 0; i < genres.length; i++) { %>
+    <input type="checkbox" name="genre_id" id="genre_id" value="<%= genres[i].genre_id %>"><%= genres[i].name %> <br />
+    <% } %>
+
+    <br />
+
+    <button id="addBtn">Add</button>
+</form>
+
+
+<%include ../partials/footer%>

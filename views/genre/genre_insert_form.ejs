@@ -1,0 +1,18 @@
+<%  // include jquery for ajax requests and
+    // include custom javascript file for submitting data to our web server using ajax
+    // order matters.  genre_ajax requires jquery, so it must be loaded second
+%>
+<% var js_includes = ['https://code.jquery.com/jquery-1.12.3.min.js', '/javascripts/genre_ajax.js']%>
+
+<% include ../partials/header %>
+
+
+
+<h1>Add New Genre</h1>
+<form>
+    Name: <input type="text" id="genre_name" />
+    <button id="addBtn">Add</button>
+</form>
+<div id="message" style="display:none">This Text is Hidden!</div>
+
+<% include ../partials/footer %>

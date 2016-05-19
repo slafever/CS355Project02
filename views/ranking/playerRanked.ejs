@@ -1,0 +1,47 @@
+<% if (typeof js_includes !== 'undefined') {%>
+<% for (var i=0; i < js_includes.length; i++) {%>
+<script src="<%=js_includes[i]%>"></script>
+<%}%>
+<%}%>
+<% include ../partials/header.ejs%>
+<% if(typeof player_id !== 'undefined') {%>
+<input type="hidden" id="player_id" value="<%=player_id%>">
+<%}%>
+
+<h1>Rate a Player</h1>
+
+<form method="POST" action="auth_required/insert_rating">
+    Rank the Player dependent on the game:
+    <br />
+    If ranking smite(id = 1) use qualifier, bronze, silver, gold, platinum, diamond, or grandmaster and a number between 0-100.
+    <br />
+    If ranking hearthstone (id = 3) use rank 25-1 with different star values up to 5 or legend rank with a number.
+    <br />
+    If ranking Street Fighter (id = 4) similar to smite but there is a bigger rank than just between 0-100 and no grandmaster.
+    <br />
+    if ranking Mortal Kombat X (id = 2) standard ranking points and position nothing difficult.
+    <br />
+    <br />
+    Video_Game_ID:
+    <select>
+    <% for(var i=0; i<games.length; i++) {%>
+        <option value="<%= games[i].video_game_id %>"><%= games[i].video_game_id%></option>
+    <% } %>
+    </select>
+    <br />
+    Player_ID:
+    <select>
+        <% for(var i=0; i<players.length; i++) {%>
+        <option value="<%= players[i].player_id %>"><%= players[i].player_id%></option>
+        <% } %>
+    </select>
+    <br />
+    Position:
+    <input type="text" name="position" id="position" >
+    <br />
+    Points:
+    <input type="number" name="points" id="points" >
+    <br />
+    <button id="Rank">Rank</button>
+</form>
+<% include ../partials/footer.ejs%>

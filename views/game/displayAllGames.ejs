@@ -1,0 +1,25 @@
+<% include ../partials/header.ejs %>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Video Game Title</th><th>Actions</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/game/?video_game_id=<%= rs[i].video_game_id %>"> <%= rs[i].title %></a></td>
+            <td>
+                <a href="/game/delete/?video_game_id=<%= rs[i].video_game_id %>&title=<%= rs[i].title %>">Delete</a>
+                <a href="/game/edit/?video_game_id=<%= rs[i].video_game_id %>">Edit</a>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No movies exist.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/game/new">Create A New Video Game</a>
+</div>
+
+<% include ../partials/footer.ejs %>
